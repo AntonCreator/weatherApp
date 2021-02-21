@@ -27,6 +27,17 @@ class App extends React.Component {
      console.log (data)
 
      
+
+     this.setState ({
+      cityName : data.name,
+      weather : data.weather[0].main,
+      temperature : data.main.temp,
+      feel : data.main.feels_like,
+      wind : data.wind.speed,
+      sunset : data.sys.sunset,
+      humidity : data.main.humidity,
+      visibility : true
+     })
   }
 
 
@@ -37,8 +48,8 @@ class App extends React.Component {
     <div>
       <h1>Weather App</h1>
       <h2>Change your city name and get weather</h2>
-      <Input />
-      { visibility &&
+      <Input getWeather = {this.getWeather} />
+      { this.state.visibility &&
       <Weather cityName = {this.state.cityName}
       weather = {this.state.weather}
       temperature = {this.state.temperature}
