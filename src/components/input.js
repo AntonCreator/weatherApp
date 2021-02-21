@@ -33,10 +33,10 @@ class Input extends React.Component {
         let {input} = this.state;
  
         return (
-            <div>
+            <div className = "inputDiv">
                 <input placeholder = "Enter your city" onKeyPress = {this.handleEnter} 
-                onChange = {this.inputChange} value = {input}></input>
-                <button >Get a weather</button>
+                onChange = {this.inputChange} onClick = {this.getWeather} value = {input}></input>
+                <button className = "btn btn-success">Get a weather</button>
             </div>
         )
     }

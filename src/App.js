@@ -26,7 +26,10 @@ class App extends React.Component {
      const data = await url_Api.json();
      console.log (data)
 
-     
+     let sunset = data.sys.sunset;
+     let date = new Date()
+     date.setTime(sunset)
+     let sunset_date = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
 
      this.setState ({
       cityName : data.name,
@@ -34,7 +37,7 @@ class App extends React.Component {
       temperature : data.main.temp,
       feel : data.main.feels_like,
       wind : data.wind.speed,
-      sunset : data.sys.sunset,
+      sunset : sunset_date,
       humidity : data.main.humidity,
       visibility : true
      })
@@ -45,9 +48,9 @@ class App extends React.Component {
   render () {
     return (
 
-    <div>
-      <h1>Weather App</h1>
-      <h2>Change your city name and get weather</h2>
+    <div className = "mainDiv">
+      <h1 className = "title">Weather App</h1>
+      <h6 className = "title">Change your city name and get weather</h6>
       <Input getWeather = {this.getWeather} />
       { this.state.visibility &&
       <Weather cityName = {this.state.cityName}
@@ -59,7 +62,7 @@ class App extends React.Component {
       humidity = {this.state.humidity}
        /> }
 
-      <p>by AntonCreator</p>
+      <p className = "title">by AntonCreator Ⓒ</p>
     </div>
     )
   }
