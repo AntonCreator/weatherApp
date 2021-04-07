@@ -101,4 +101,6 @@ body{
 
 .title {
   text-shadow: 10px 10px 20px black;
+  margin: auto;
+  text-align: center;
 }
